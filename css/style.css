@@ -1,0 +1,40 @@
+/*body{
+  background-image: linear-gradient(rgba(47, 23, 15, 0.15), rgba(47, 23, 15, 0.15)), url("../images/background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+} */
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+body{
+background: rgb(231,96,160);
+background: linear-gradient(169deg, rgba(231,96,160,1) 10%, rgba(130,167,212,1) 90%);
+}
+
+.cover{
+  border: 15px solid #592f5b;
+  border-radius: 25px;
+  margin-top: 6rem;
+  margin-left: 12rem;
+  margin-right: 12rem;
+  background-color: white;
+}
+
+.font{
+	font-family: 'Kumbh Sans', sans-serif;
+}
+
+.title-cover{
+	text-align: center;
+	font-size: 24px;
+}
+
+.text-cover{
+	text-align: center;
+	color: grey;
+	font-size: 14px;
+}

@@ -1,43 +1,89 @@
 <head>
-<link href="style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/nav.css" rel="stylesheet">
+<link href="css/slide.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-<div class="flex">
-<img src="logo.png">
+<body class="font">
+<div class="logo flex-container">
+<img src="images/logo.png">
+</div>
+<div class="cover">
+
+
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <img src="images/slides/1.jpg" class="slide-size">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="images/slides/2.jpg" class="slide-size">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="images/slides/3.jpg" class="slide-size">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 
-<div class="flex">
-<div class="border">
-<form autocomplete="off" class="padding" name="submit-to-google-sheet">
-  <input autocomplete="off" class="input" name="email" type="email" placeholder="Email" required>
-  <input autocomplete="off" class="input" name="firstName" type="text" placeholder="First Name" required>
-  <input autocomplete="off" class="input" name="lastName" type="text" placeholder="Last Name" required>
-  <button class="button" onclick="submit()" type="submit">Send</button>
-</form>
-</div>
-</div>
 
+
+
+<h1 class="title-cover">
+Studio S Dance Company
+</h1>
+<div class="flex-container">
+<h1 class="text-cover"> Studio S Dance Company has been running for over 3 years and provides
+ dance classes in Rochford, in contemporary commercial, technique, and more. For ages 5-18 years of age. Our dance classes are taught by experienced, trained teachers who provide knowledge, skill and passion. Fun classes for all ages whether your just starting out or an experienced dancer there is a class 
+ to suit all. At Studio S we have a dance competition team that train and compete in competitions around the UK, a great way to continuously train and perform. 
+We put on two dance show every a year, one at Christmas and one in the summer,
+ offering students the opportunity to perform on stage. We have an exam term where students are examined on their progress and dance skills, these are optional for all to take part in.
+Come and join our dance family. </h1>
+</div>
+</div>
 </body>
 
-<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
-<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
-<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
-
 <script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzwK_WkQBNi1cyX-C387zSPOMV_XpzyjFaEDq50TZO3WxGUSeg/exec'
-  const form = document.forms['submit-to-google-sheet']
+var slideIndex = 1;
+showSlides(slideIndex);
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
-</script>
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
 
-<script>
-    function submit(){
-        $('.clearFields').val('');
-    }
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 10000); // Change image every 10 seconds
+}
 </script>
